@@ -1,12 +1,36 @@
 <aside>
 
 ---
-# 💸Send money💸
+# Project 💸Send money💸
+
+### 목차
+
+1. [**프로젝트 소개**](#send-money)  
+2. [**DB 원격 연결 설정 💿**](#1-db-원격-연결-설정)  
+3. [**테이블 생성 및 예제 데이터 👤**](#2-테이블-생성-및-예제-데이터-)  
+4. [**정규표현식 연습용 SQL 문제 📝**](#3-정규표현식-연습용-sql-문제-)  
+   4.1 [문제 1: 우편번호 확인](#문제-1-우편번호-확인)  
+   4.2 [문제 2: 송금인 이름 확인](#문제-2-송금인-이름-확인)  
+   4.3 [문제 3: 전화번호 형식 검증](#문제-3-전화번호-형식-검증)  
+   4.4 [문제 4: 계좌번호 형식 검증](#문제-4-계좌번호-형식-검증)  
+   4.5 [문제 5: 거래 은행 이름 검증](#문제-5-거래-은행-이름-검증)  
+   4.6 [문제 6: 주민등록번호 형식 검증](#문제-6-주민등록번호-형식-검증)  
+   4.7 [문제 7: 이메일 형식 검증](#문제-7-이메일-형식-검증)  
+
+5. [**트러블슈팅 💥**](#4-트러블슈팅)  
+   5.1 [문제 설명](#-문제-설명-problem-statement)  
+   5.2 [문제 분석](#%EF%B8%8F-문제-분석-root-cause-analysis)  
+   5.3 [해결 과정](#-해결-과정-troubleshooting-steps)  
+   5.4 [해결 방법](#-해결-방법-solution)  
+
+6. [**프로젝트 고찰 🤔**](#5-고찰)
+
 
 ## Developers
 | <img src="https://github.com/imhaeunim.png" width="200px"> | <img src="https://github.com/letmeloveyou82.png" width="200px"> | <img src="https://github.com/andytjdqls.png" width="200px"> | <img src="https://github.com/unoYoon.png" width="200px"> |
 | :---: | :---: | :---: | :---: |
 | [임하은](https://github.com/imhaeunim) | [최윤정](https://github.com/letmeloveyou82) | [이성빈](https://github.com/andytjdqls) | [윤원호](https://github.com/unoYoon) |
+
 
 ### **개요**
 데이터베이스와의 원격 접속을 통해 실제 환경에서의 데이터 처리 경험을 제공하고 정규표현식을 이해하기 위해 프로젝트 설계
@@ -220,26 +244,20 @@ WHERE email NOT REGEXP
 ---
 ### 💡 **해결 과정 (Troubleshooting Steps)**
 
-1. **호스트 Windows 방화벽 해제**
-   
-    <img src="https://github.com/user-attachments/assets/4796b9e1-7a53-4699-8d36-1120d1a9b630" width="600px">
-    
-    - Windows 방화벽에서 MySQL이 사용하는 3306 포트가 차단되어 있을 수 있음.
-
-2. **Ubuntu에서 MySQL 3306 포트 허용**
-    - Ubuntu의 방화벽 및 MySQL 설정에서 3306 포트를 허용하는 작업을 수행.
+1. **Ubuntu에서 MySQL 3306 포트 허용**
+    - Ubuntu의 MySQL 설정에서 3306 포트를 허용하는 작업을 수행.
         
         ```bash
         sudo ufw allow 3306/tcp
         ```
         
-3. **새 사용자 생성 및 권한 부여 확인**
+2. **새 사용자 생성 및 권한 부여 확인**
     - 쿼리문을 다시 한 번 검토했으나, 사용자 권한 부여에 문제가 없음을 확인.
-4. **기존 사용자(**user01**)로 연결되는 현상 분석**
+3. **기존 사용자(**user01**)로 연결되는 현상 분석**
     - **원인**: 다른 사용자의 이더넷 IP로 연결되었기 때문에 기존 사용자(user01)로는 접속이 가능했음.
    
     - 새로 생성한 사용자가 올바른 IP에서 접속하려면 추가 설정이 필요함.
-5. **DB 접속 시 연결 IP 확인**
+4. **DB 접속 시 연결 IP 확인**
     - 새 사용자도 접속할 수 있도록, 호스트 및 Ubuntu의 IP와 포트 포워딩 설정이 필요함.
 ---
 
@@ -249,19 +267,22 @@ WHERE email NOT REGEXP
    
 2. **호스트 시스템에서 포트 포워딩 설정**:
    
-    - 호스트 Windows와 Ubuntu 간의 **포트 포워딩**을 설정해야 하며, Windows 방화벽을 해제하고, Ubuntu에서 3306 포트를 허용해야 함.
-    <img src="https://github.com/user-attachments/assets/41f21d05-59bf-4363-b7e7-a44ef121a387" width="600px">
+    - 호스트 Windows와 Ubuntu 간의 **포트 포워딩**을 설정해야 하며, Ubuntu에서 3306 포트를 허용해야 함.
+    
+     <img src="https://github.com/user-attachments/assets/a0136e48-fb40-4cdb-be39-8fcf0564486b" width="600px">
+
 3. **Ubuntu IP와 호스트 IP를 연결하여 포트 포워딩 설정**:
    
     - 새로운 사용자가 **호스트 IP**를 통해 접속할 수 있도록 포트 포워딩 설정이 완료되면, 모든 사용자가 문제 없이 연결 가능.
-   
-    <img src="https://github.com/user-attachments/assets/a5d7d16b-6e96-409a-a321-454f872b2ad5" width="600px">
 
+    <img src="https://github.com/user-attachments/assets/a5d7d16b-6e96-409a-a321-454f872b2ad5" width="600px">
 ---
 
 
 ## 5. 고찰🤔 
-- 다양한 데이터 검증 문제를 해결하면서 정규표현식의 문법을 깊이 이해함. 특히 복잡한 패턴을 간결하게 표현할 수 있는 정규표현식의 효율성을 실감함.
-- 하나의 MySQL에 4명이 동시에 사용할 수 있도록 원격 환경을 구축하면서 포트포워딩, 방화멱 설정, 계정 권한 부여 등 실제 네트워크 환경에서 발생할 수 있는 문제 해결 경험을 쌓음.
-![lastimage](https://github.com/user-attachments/assets/f639fab5-5c97-4215-89de-23f76ab72682)
 
+- 다양한 데이터 검증 문제를 해결하면서 정규표현식의 문법을 깊이 이해함. 특히 복잡한 패턴을 간결하게 표현할 수 있는 정규표현식의 효율성을 실감함.
+
+- 하나의 MySQL에 4명이 동시에 사용할 수 있도록 원격 환경을 구축하면서 포트포워딩, 방화멱 설정, 계정 권한 부여 등 실제 네트워크 환경에서 발생할 수 있는 문제 해결 경험을 쌓음.
+
+    <img src="https://github.com/user-attachments/assets/f639fab5-5c97-4215-89de-23f76ab72682" width="600px">
