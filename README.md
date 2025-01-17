@@ -5,7 +5,7 @@
 
 ### 목차
 
-0. [**프로젝트 소개**](#developers)  
+0. [**프로젝트 소개**](#팀원-소개)  
 
 1. [**DB 원격 연결 설정 💿**](#1-db-원격-연결-설정)  
 2. [**테이블 생성 및 예제 데이터 👤**](#2-테이블-생성-및-예제-데이터-)  
@@ -38,7 +38,7 @@
 5. [**프로젝트 고찰 🤔**](#5-고찰)
 
 
-## Developers
+## 팀원 소개
 | <img src="https://github.com/imhaeunim.png" width="200px"> | <img src="https://github.com/letmeloveyou82.png" width="200px"> | <img src="https://github.com/andytjdqls.png" width="200px"> | <img src="https://github.com/unoYoon.png" width="200px"> |
 | :---: | :---: | :---: | :---: |
 | [임하은](https://github.com/imhaeunim) | [최윤정](https://github.com/letmeloveyou82) | [이성빈](https://github.com/andytjdqls) | [윤원호](https://github.com/unoYoon) |
