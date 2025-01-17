@@ -78,7 +78,7 @@ CREATE TABLE user (
     phone_number VARCHAR(15),         -- 전화번호 (예: 010-1234-5678)
     user_name VARCHAR(16),            -- 사용자 이름
     bank_name VARCHAR(21),            -- 거래 은행
-    zipcode VARCHAR(6)               -- 우편번호 (예: 12345 또는 123-456)
+    zipcode VARCHAR(6)               -- 우편번호 (예: 12345)
 );
 
 ```
@@ -106,22 +106,22 @@ INSERT INTO user (email, ssn, account_number, phone_number, user_name, bank_name
 
 ### **문제 1: 우편번호 확인**
 
-우편번호는 5글자 숫자입니다. 이에 맞게 정규표현식을 작성하세요.
+우편번호는 5글자 숫자입니다. 이에 맞게 where 절에 정규표현식을 작성하세요.
 
 정규표현식 : 
 
 ```sql
 SELECT *
 FROM user
-WHERE zipcode REGEXP 
-
+WHERE zipcode REGEXP
+-- 우편번호 (예: 12345)
 ```
 
 ---
 
 ### **문제 2: 송금인 이름 확인**
 
-송금인 이름은 2글자 이상 5글자 이하인 한글입니다. 이에 맞게 정규표현식을 작성하세요.
+송금인 이름은 2글자 이상 5글자 이하인 한글입니다. 이에 맞게 where 절에 정규표현식을 작성하세요.
 
 **정규표현식**: 
 
@@ -129,14 +129,14 @@ WHERE zipcode REGEXP
 SELECT *
 FROM user
 WHERE user_name REGEXP 
-
+-- 사용자 이름 (예: 홍길동) 
 ```
 
 ---
 
 ### **문제 3: 전화번호 형식 검증**
 
-전화번호 형식 `010-####-####` 에 맞게 정규표현식을 작성하세요.
+전화번호 형식 `010-####-####` 에 맞게 where 절에 정규표현식을 작성하세요.
 
 단, `#` 에 들어갈 번호는 모두 숫자여야만 합니다.
 
@@ -146,14 +146,14 @@ WHERE user_name REGEXP
 SELECT *
 FROM user
 WHERE phone_number REGEXP 
-
+-- 전화번호 (예: 010-1234-5678)
 ```
 
 ---
 
 ### **문제 4: 계좌번호 형식 검증**
 
-계좌번호 형식 `####-###-######` 에 맞게 정규표현식을 작성하세요.
+계좌번호 형식 `####-###-######` 에 맞게 where 절에 정규표현식을 작성하세요.
 
 단, `#` 에 들어갈 번호는 모두 숫자여야만 합니다.
 
@@ -168,14 +168,14 @@ WHERE phone_number REGEXP
 SELECT *
 FROM user
 WHERE account_number REGEXP 
-
+-- 계좌번호 (예: 123-456-789012)
 ```
 
 ---
 
 ### **문제 5: 거래 은행 이름 검증**
 
-은행 이름은 신한, 국민, 농협, 우리, 하나 중 1개입니다. 이에 맞게 정규표현식을 작성하세요.
+은행 이름은 신한, 국민, 농협, 우리, 하나 중 1개입니다. 이에 맞게 where 절에 정규표현식을 작성하세요.
 
 **정규표현식**: 
 
@@ -183,14 +183,14 @@ WHERE account_number REGEXP
 SELECT *
 FROM user
 WHERE bank_name REGEXP 
-
+-- 거래 은행 (예: 우리은행)
 ```
 
 ---
 
 ### **문제 6:** 주민등록번호 **형식 검증**
 
-주민등록번호 형식(예: `######-#`)에 맞게 정규표현식을 작성하세요.
+주민등록번호 형식(예: `######-#`)에 맞게 where 절에 정규표현식을 작성하세요.
 
 단, 주민등록번호는 앞에서 7글자까지만 검증합니다.
 
@@ -202,7 +202,7 @@ WHERE bank_name REGEXP
 SELECT *
 FROM user
 WHERE ssn REGEXP 
-
+-- 주민번호 (예: 123456-1)
 ```
 
 ---
@@ -219,7 +219,7 @@ WHERE ssn REGEXP
 
 2. 아이디(`@` 앞부분)는 **한 글자 이상**이어야 함.
 3. `@` 기호가 반드시 포함되어야 함.
-4. 도메인(`@` 뒷부분)은 **영문 소문자(`a-z`), 대문자(`A-Z`), 숫자(`0-9`), 점(`.`), 하이픈(``)**만 사용 가능.
+4. 도메인(`@` 뒷부분)은 **영문 소문자(`a-z`), 대문자(`A-Z`), 숫자(`0-9`), 점(`.`)**만 사용 가능.
 5. 도메인의 마지막 부분(최상위 도메인, `.com`, `.net` 등)은 **2글자 이상**이어야 함.
 </aside>
 
@@ -228,7 +228,8 @@ WHERE ssn REGEXP
 ```sql 
 SELECT *
 FROM user
-WHERE email REGEXP 
+WHERE email REGEXP
+-- 이메일 (예: [username]@[domain].[tld]) 
 ```
 
 ---
