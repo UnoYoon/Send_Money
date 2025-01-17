@@ -113,7 +113,7 @@ INSERT INTO user (email, ssn, account_number, phone_number, user_name, bank_name
 ```sql
 SELECT *
 FROM user
-WHERE zipcode NOT REGEXP 
+WHERE zipcode REGEXP 
 
 ```
 
@@ -128,7 +128,7 @@ WHERE zipcode NOT REGEXP
 ```sql
 SELECT *
 FROM user
-WHERE user_name NOT REGEXP 
+WHERE user_name REGEXP 
 
 ```
 
@@ -145,7 +145,7 @@ WHERE user_name NOT REGEXP
 ```sql
 SELECT *
 FROM user
-WHERE phone_number NOT REGEXP 
+WHERE phone_number REGEXP 
 
 ```
 
@@ -167,7 +167,7 @@ WHERE phone_number NOT REGEXP
 ```sql
 SELECT *
 FROM user
-WHERE account_number NOT REGEXP 
+WHERE account_number REGEXP 
 
 ```
 
@@ -182,7 +182,7 @@ WHERE account_number NOT REGEXP
 ```sql
 SELECT *
 FROM user
-WHERE bank_name NOT REGEXP 
+WHERE bank_name REGEXP 
 
 ```
 
@@ -201,7 +201,7 @@ WHERE bank_name NOT REGEXP
 ```sql
 SELECT *
 FROM user
-WHERE ssn NOT REGEXP 
+WHERE ssn REGEXP 
 
 ```
 
@@ -225,10 +225,10 @@ WHERE ssn NOT REGEXP
 
 **정규표현식**: 
 
-```sql
+```sql 
 SELECT *
 FROM user
-WHERE email NOT REGEXP 
+WHERE email REGEXP 
 ```
 
 ---
