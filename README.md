@@ -37,6 +37,7 @@
 
 5. [**프로젝트 고찰 🤔**](#5-고찰)
 
+6. [**Feedback**](#6-feedback)
 
 ## 팀원 소개
 | <img src="https://github.com/imhaeunim.png" width="200px"> | <img src="https://github.com/letmeloveyou82.png" width="200px"> | <img src="https://github.com/andytjdqls.png" width="200px"> | <img src="https://github.com/unoYoon.png" width="200px"> |
@@ -300,3 +301,19 @@ WHERE email REGEXP
 - 하나의 MySQL에 4명이 동시에 사용할 수 있도록 원격 환경을 구축하면서 포트포워딩, 방화멱 설정, 계정 권한 부여 등 실제 네트워크 환경에서 발생할 수 있는 문제 해결 경험을 쌓음.
 
     <img src="https://github.com/user-attachments/assets/f639fab5-5c97-4215-89de-23f76ab72682" width="600px">
+
+## 6. Feedback
+<br>
+
+### Disadvantages
+1. **오류 데이터 부족**: 정답을 확인하는 데 있어 오류 데이터를 제공하지 않아 불편함이 있었습니다.
+
+2. **이메일 형식 문제**: 7번 문제에서 이메일 형식이 주어진 조건으로는 '문자열@..문자열'이 가능하게 되어, 이 조건이 맞는지에 대해 고민이 되었습니다.
+
+### Advantages
+
+1. **정규표현식에 대한 심화 고민**: 정규표현식을 깊이 있게 다룰 수 있어 유익했습니다.
+
+2. **생년월일 정규표현식 적용**: 생년월일에 대한 정규표현식을 구상하면서 다양한 방법을 적용할 수 있다는 점이 좋았습니다.
+
+3. **README에서 문제 제공**: 문제 출제와 풀이를 README에서 바로 확인할 수 있어 다른 툴 없이 문제를 풀 수 있는 점이 편리했습니다.
